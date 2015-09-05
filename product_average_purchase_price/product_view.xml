@@ -1,0 +1,28 @@
+<openerp>
+	<data>
+		 <!-- Product Template Views -->
+        <record id="product_template_only_form_view" model="ir.ui.view">
+            <field name="name">product_price_currency.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <field name="standard_price" position="after">
+                    <field name="average_purchaes_price"/>
+                </field>
+            </field>
+        </record>
+        
+         <!-- Product Template Tree View -->
+        <record id="product_template_tree_view" model="ir.ui.view">
+            <field name="name">product_price_currency.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view" />
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="average_purchaes_price"/>
+                </field>
+            </field>
+        </record>
+		
+	</data>
+</openerp>
