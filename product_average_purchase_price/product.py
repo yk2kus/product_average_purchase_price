@@ -27,17 +27,15 @@ class product_template(osv.osv):
     def _get_average_purchase_price(self, cr, uid, ids, name, arg, context=None):
         pol_obj = self.pool.get('purchase.order.line')
         res = {}
-        qty = 0.0
         for template in self.browse(cr, uid, ids, context=context):
             #get all purchase order lines with current product template
-            res[template.id] = 0.0
+            res[template.id] = qty = subtot = 0.0
             product_id = self.pool.get('product.product').search(cr, uid, [('product_tmpl_id','=',template.id)])
             if len(product_id):
                 line_ids = pol_obj.search(cr, uid, [('product_id', '=', product_id[0])], context=context)
                 for line in pol_obj.browse(cr, uid, line_ids, context):
                     qty += line.product_qty
                     subtot += line.price_subtotal
-                
                     try:
                         res[template.id] = subtot/qty
                     except:
