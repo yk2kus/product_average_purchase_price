@@ -21,7 +21,7 @@
 
 {
     'name': 'Product Purchase Average Price',
-    'version': '7.0',
+    'version': '0.2',
     'author': 'Yogesh kushwaha',
     'website': 'http://www.openerp.com',
     'sequence':130,
